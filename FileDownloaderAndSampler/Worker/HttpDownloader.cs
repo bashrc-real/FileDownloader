@@ -43,11 +43,11 @@ namespace FileDownloaderAndSampler.Worker
                 try
                 {
                     await func().ConfigureAwait(false);
+                    return;
                 }
                 catch (WebException ex)
                 {
                     downloadProgressNotifier.SetDownloadProgess(-1);
-
                 }
             } while (++attempt < maxAttempts);
         }
